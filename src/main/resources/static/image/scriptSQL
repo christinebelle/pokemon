@@ -1,0 +1,68 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: Pokemon
+#------------------------------------------------------------
+
+CREATE TABLE Pokemon(
+        idPokemon  Int  Auto_increment  NOT NULL ,
+        nomPokemon Varchar (50) NOT NULL ,
+        nomEvol1   Varchar (50) ,
+        nomEvol2   Varchar (50)
+	,CONSTRAINT Pokemon_PK PRIMARY KEY (idPokemon)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Type
+#------------------------------------------------------------
+
+CREATE TABLE Type(
+        idType       Int  Auto_increment  NOT NULL ,
+        nomType      Varchar (50) NOT NULL ,
+        attaqueIm1   Varchar (50) ,
+        attaqueIm2   Varchar (50) ,
+        attaqueChar1 Varchar (50) ,
+        attaqueChar2 Varchar (50)
+	,CONSTRAINT Type_PK PRIMARY KEY (idType)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: contient
+#------------------------------------------------------------
+
+CREATE TABLE contient(
+        idType    Int NOT NULL ,
+        idPokemon Int NOT NULL
+	,CONSTRAINT contient_PK PRIMARY KEY (idType,idPokemon)
+
+	,CONSTRAINT contient_Type_FK FOREIGN KEY (idType) REFERENCES Type(idType)
+	,CONSTRAINT contient_Pokemon0_FK FOREIGN KEY (idPokemon) REFERENCES Pokemon(idPokemon)
+)ENGINE=InnoDB;
+
+#--- ajout: type --#
+INSERT INTO Type (nomType, attaqueIm1, attaqueIm2, attaqueChar1, attaqueChar2) VALUES
+('Feu', 'Griffe', 'Flammèche', 'Rebondifeu', 'Lance-Flammes'),
+('Eau', 'Charge', 'Ecume', 'Aqua-Jet', 'Hydroqueue'),
+('Electrique', 'Eclair', 'Vive-Attaque', 'Tonnerre', 'CoupdJus'),
+('Plante', 'TranchHerbe', 'Acide', 'Canon Graine', 'Bomb-Beurk')
+
+#--- ajout: pokemon ---#
+INSERT INTO Pokemon (nomPokemon, nomEvol1, nomEvol2) VALUES
+('Salamèche', 'Reptincel', 'Dracaufeu'),
+('Nénupiot', 'Lombre', 'Ludicolo'),
+('Carapuce', 'Carabaffe', 'Tortank'),
+('Bulbizarre', 'Herbizarre', 'Florizarre')
+
+#--- ajout: contient ---#
+INSERT INTO contient (idType, idPokemon) VALUES
+(1, 6),
+(2, 7),
+(2, 8),
+(4, 7),
+(4, 9)
+
