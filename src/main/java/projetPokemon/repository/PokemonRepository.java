@@ -1,5 +1,9 @@
 package projetPokemon.repository;
 
-public class PokemonRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import projetPokemon.model.PokemonEntity;
+
+public interface PokemonRepository extends CrudRepository<PokemonEntity, Integer> {
 
 }
