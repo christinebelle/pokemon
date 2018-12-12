@@ -4,12 +4,10 @@ package projetPokemon.controleur;
  *
  */
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import projetPokemon.model.PokemonEntity;
-import projetPokemon.model.TypeEntity;
 import projetPokemon.repository.PokemonRepository;
-import projetPokemon.repository.TypeRepository;
 
 
 @RestController
@@ -29,8 +25,8 @@ public class PokemonControleur {
 	@Autowired
 	private PokemonRepository pokemonRepo;
 	
-	@Autowired
-	private TypeRepository typeRepo;
+//	@Autowired
+//	private TypeRepository typeRepo;
 	
 	
 	/**
@@ -75,10 +71,42 @@ public class PokemonControleur {
 	 */     
 	@RequestMapping(value = "/pokemonGet/{nomPokemon}")     
 	public ResponseEntity<?> recherchePokemon(@PathVariable String nomPokemon) { 
-		List<PokemonEntity> pokemonRecherché = null;                 
-		pokemonRecherché = pokemonRepo.findByNom(nomPokemon);         
-		return ResponseEntity.status(HttpStatus.OK).body(pokemonRecherché);    
+		List<PokemonEntity> pokemonRecherche = null;                 
+		pokemonRecherche = pokemonRepo.findByNom(nomPokemon);         
+		return ResponseEntity.status(HttpStatus.OK).body(pokemonRecherche);    
 		}
 	
+	/**
+	 * Méthode qui supprime un pokemon
+	 * @param idPokemon
+	 * @return null
+	 */
+	@RequestMapping(value = "/pokemonDelete/{idPokemon}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> supprimePokemon(@PathVariable Integer idPokemon) {
+		pokemonRepo.deleteById(idPokemon);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(null);
+	}
+	
+	/**
+	 * 
+	 * @param pokemon
+	 * @param idPokemon
+	 * @return
+	 */
+	@RequestMapping(value = "/pokemonUpdate/{idPokemon}", method = RequestMethod.PUT)
+	public ResponseEntity<?> modifiePokemon(@RequestBody PokemonEntity pokemon, @PathVariable Integer idPokemon) {
+		PokemonEntity pokemonModifie = null;
+		
+		String nomPokemon = pokemon.getNomPokemon();
+		
+		if ((nomPokemon == null) || (nomPokemon.isEmpty())) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Il manque le nom du pokémon !");
+		}
+		pokemonModifie = pokemonRepo.save(pokemon);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(pokemonModifie);
+		
+	}
 	
 }
