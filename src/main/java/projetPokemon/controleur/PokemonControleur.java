@@ -25,7 +25,11 @@ public class PokemonControleur {
 	
 	@Autowired
 	private TypeRepository typeRepo;
-
+	/**
+	 * 
+	 * @param pokemon
+	 * @return
+	 */
 	@RequestMapping(value="/pokemonPost", method = RequestMethod.POST)
 	public ResponseEntity<?> creerPokemon(@RequestBody PokemonEntity pokemon) {
 		PokemonEntity newPokemon = null;
