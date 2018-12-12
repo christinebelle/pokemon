@@ -68,19 +68,17 @@ public class PokemonControleur {
 	}
 	
 	
-	/**
-	 * Méthode qui affiche un pokemon uniquement
-	 * @param nompokemon
-	 * @return un pokemon
-	 */
-	@RequestMapping(value = "/pokemonGet/{nomPokemon}", method = RequestMethod.GET)
-	public ResponseEntity<?> rechercherPokemon(@PathVariable String nomPokemon) {
-		PokemonEntity pokemonRecherché = null;
-		
-		pokemonRecherché = pokemonRepo.;
-				
-		return ResponseEntity.status(HttpStatus.OK).body(pokemonRecherché);
-	}
+	/**      
+	 * Méthode qui affiche un pokemon uniquement      
+	 * @param nompokemon      
+	 * @return un pokemon      
+	 */     
+	@RequestMapping(value = "/pokemonGet/{nomPokemon}")     
+	public ResponseEntity<?> recherchePokemon(@PathVariable String nomPokemon) { 
+		List<PokemonEntity> pokemonRecherché = null;                 
+		pokemonRecherché = pokemonRepo.findByNom(nomPokemon);         
+		return ResponseEntity.status(HttpStatus.OK).body(pokemonRecherché);    
+		}
 	
 	
 }
