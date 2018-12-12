@@ -1,10 +1,16 @@
 package projetPokemon.controleur;
 
+/**
+ *
+ */
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,10 +31,12 @@ public class PokemonControleur {
 	
 	@Autowired
 	private TypeRepository typeRepo;
+	
+	
 	/**
-	 * 
+	 * Methode qui permet d'ajouter un pokemon
 	 * @param pokemon
-	 * @return
+	 * @return la creation d'un newPokemon
 	 */
 	@RequestMapping(value="/pokemonPost", method = RequestMethod.POST)
 	public ResponseEntity<?> creerPokemon(@RequestBody PokemonEntity pokemon) {
@@ -45,4 +53,34 @@ public class PokemonControleur {
 		return ResponseEntity.status(HttpStatus.CREATED).body(newPokemon);
 		
 	}
+	
+	/**
+	 * Methode qui affiche tous les pokemons
+	 * @return liste de pokemon
+	 */
+	@RequestMapping(value = "/pokemonGetAll", method = RequestMethod.GET)
+	public ResponseEntity<?> affichePokemon() {
+		Iterable<PokemonEntity> listePokemons = null;
+		
+		listePokemons = pokemonRepo.findAll();
+			
+		return ResponseEntity.status(HttpStatus.OK).body(listePokemons);
+	}
+	
+	
+	/**
+	 * Méthode qui affiche un pokemon uniquement
+	 * @param nompokemon
+	 * @return un pokemon
+	 */
+	@RequestMapping(value = "/pokemonGet/{nomPokemon}", method = RequestMethod.GET)
+	public ResponseEntity<?> rechercherPokemon(@PathVariable String nomPokemon) {
+		PokemonEntity pokemonRecherché = null;
+		
+		pokemonRecherché = pokemonRepo.;
+				
+		return ResponseEntity.status(HttpStatus.OK).body(pokemonRecherché);
+	}
+	
+	
 }
