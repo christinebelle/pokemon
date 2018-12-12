@@ -49,20 +49,20 @@ INSERT INTO Type (nomType, attaqueIm1, attaqueIm2, attaqueChar1, attaqueChar2) V
 ('Feu', 'Griffe', 'Flammèche', 'Rebondifeu', 'Lance-Flammes'),
 ('Eau', 'Charge', 'Ecume', 'Aqua-Jet', 'Hydroqueue'),
 ('Electrique', 'Eclair', 'Vive-Attaque', 'Tonnerre', 'CoupdJus'),
-('Plante', 'TranchHerbe', 'Acide', 'Canon Graine', 'Bomb-Beurk')
+('Plante', 'TranchHerbe', 'Acide', 'Canon Graine', 'Bomb-Beurk');
 
 #--- ajout: pokemon ---#
 INSERT INTO Pokemon (nomPokemon, nomEvol1, nomEvol2) VALUES
 ('Salamèche', 'Reptincel', 'Dracaufeu'),
 ('Nénupiot', 'Lombre', 'Ludicolo'),
 ('Carapuce', 'Carabaffe', 'Tortank'),
-('Bulbizarre', 'Herbizarre', 'Florizarre')
+('Bulbizarre', 'Herbizarre', 'Florizarre');
 
 #--- ajout: contient ---#
 INSERT INTO contient (idType, idPokemon) VALUES
-(1, 6),
-(2, 7),
-(2, 8),
-(4, 7),
-(4, 9)
+(1, 1),
+(2, 2),
+(4, 2),
+(2, 3),
+(4, 4);
 
