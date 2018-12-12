@@ -4,9 +4,13 @@ Créez un modèle de données sur le thème des pokémons.
 
 ## Mise en place du projet
 
-### Création d'un Trello
+### Trello
 
-### Création du MCD et du MLD
+### Maquette
+
+![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/maquettePok.png)
+
+### MCD et MLD
 
 MCD
 ![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/mcdPok.png)
