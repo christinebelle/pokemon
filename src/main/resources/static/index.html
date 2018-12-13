@@ -1,13 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Chrichri ^_^ Pokemons</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css" />
 </head>
-<body>
+	<body>
 
-<h1>Les Pokemons de Chrichri ^_^</h1>
+		<header id="header">
+			<div class="inner">
+				<a href="index.html" class="logo"> 
+				<span class="symbol"><img src="image/pokemon.jpg" alt="Image Pokemon" /></span>
+				<h1 class="title">Les Pokemons de Chrichri ^_^</h1>
+				</a>
+			</div>
+		</header>
+		
+<form class="form-horizontal">
 
+
+<!-- Form Name -->
+<h3>Base de donnée des Pokemons : nom, évolution et type.</h3>
+
+<!-- Text input-->
+<div id="form">
+  <label class="col" for="">ID</label>  
+  <div class="col-md-4">
+  <input id="" name="" type="text" placeholder="saisir un ID" class="form-control input-md"/>
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="">Nom du Pokemon</label>  
+  <div class="col-md-4">
+  <input id="" name="" type="text" placeholder="saisir un Pokemon" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="">Nom première évolution</label>  
+  <div class="col-md-5">
+  <input id="" name="" type="text" placeholder="saisir le nom de l'évolution" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="">Nom deuxième évolution</label>  
+  <div class="col-md-5">
+  <input id="" name="" type="text" placeholder="saisir le nom de l'évolution" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="">Type</label>  
+  <div class="col-md-4">
+  <input id="" name="" type="text" placeholder="saisir le numéro d'un type" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for=""></label>
+  <div class="col-md-4">
+    <button id="btn-get" name="" class="btn btn-primary">Get</button>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for=""></label>
+  <div class="col-md-4">
+    <button id="" name="" class="btn btn-primary">Post</button>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="recherche"></label>
+  <div class="col-md-4">
+    <button id="recherche" name="recherche" class="btn btn-primary">Put</button>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for=""></label>
+  <div class="col-md-4">
+    <button id="" name="" class="btn btn-primary">Delete</button>
+  </div>
+</div>
+
+</form>
+
+<div id = "resultat"></div>
+
+<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/pokemon.js"></script>
 </body>
 </html>

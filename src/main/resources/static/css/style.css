@@ -1,0 +1,32 @@
+#header .logo {
+	display: block;
+	border-bottom: 0;
+	color: inherit;
+	font-weight: 60px;
+	font-size: 100%;
+	letter-spacing: 0.35em;
+	margin: 1em 0 1em 0;
+	text-decoration: none;
+	text-transform: uppercase;
+	
+}
+
+#header .logo>* {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#header .logo .symbol {
+	margin-right: 0.65em;
+}
+
+#header .logo .symbol img {
+	display: block;
+	width: 30em;
+	height: 10em;
+}
+
+#form .col {
+	font-weight: 100px;
+	font-size: 60px;
+}
