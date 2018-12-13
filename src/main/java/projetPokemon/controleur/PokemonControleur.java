@@ -56,7 +56,7 @@ public class PokemonControleur {
 	 */
 	@RequestMapping(value = "/pokemonGetAll", method = RequestMethod.GET)
 	public ResponseEntity<?> affichePokemon() {
-		Iterable<Pokemon> listePokemons = null;
+		List<Pokemon> listePokemons = null;
 		
 		listePokemons = pokemonRepo.findAll();
 			

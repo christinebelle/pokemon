@@ -3,11 +3,11 @@ package projetPokemon.repository;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import projetPokemon.model.Pokemon;
 
-@Repository
+@RepositoryRestResource
 public interface PokemonRepository extends CrudRepository<Pokemon, Integer> {
 	
 	//Methode renvoyer dans une collection
