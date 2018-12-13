@@ -101,7 +101,7 @@ function pokemon_submit(button, httpVerb, table) {
 		dataType : 'json', // précise le mode de transfert
 		cache : false, // pas de cache sollicité
 		timeout : 600000, // délai d'attente
-		success : function(data) // si ok
+		success : function(data){ // si ok
 
             // si c'est une création
             if(httpVerb == "POST")

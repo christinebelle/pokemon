@@ -17,95 +17,98 @@
 				</a>
 			</div>
 		</header>
-		
-<form class="form-horizontal">
 
+<article class="col-sm-6 col-xs-12">		
+<form class="form-horizontal">
 
 <!-- Form Name -->
 <h3>Base de donnée des Pokemons : nom, évolution et type.</h3>
 
 <!-- Text input-->
-<div id="form">
-  <label class="col" for="">ID</label>  
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">ID</label>  
   <div class="col-md-4">
-  <input id="" name="" type="text" placeholder="saisir un ID" class="form-control input-md"/>
+  <input id="idPokemon" name="textinput" type="number" placeholder="saisir un ID" class="form-control input-md">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="">Nom du Pokemon</label>  
+  <label class="col-md-4 control-label" for="textinput">Nom Pokemon</label>  
   <div class="col-md-4">
-  <input id="" name="" type="text" placeholder="saisir un Pokemon" class="form-control input-md">
+  <input id="nomPokemon" name="" type="text" placeholder="saisir un pokemon" class="form-control input-md">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="">Nom première évolution</label>  
-  <div class="col-md-5">
-  <input id="" name="" type="text" placeholder="saisir le nom de l'évolution" class="form-control input-md">
+  <label class="col-md-4 control-label" for="textinput">Nom evolution1</label>  
+  <div class="col-md-4">
+  <input id="nomEvol1" name="" type="text" placeholder="saisir evolution1" class="form-control input-md">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="">Nom deuxième évolution</label>  
-  <div class="col-md-5">
-  <input id="" name="" type="text" placeholder="saisir le nom de l'évolution" class="form-control input-md">
+  <label class="col-md-4 control-label" for="textinput">Nom evolution2</label>  
+  <div class="col-md-4">
+  <input id="nomEvol2" name="" type="text" placeholder="saisir evolution2" class="form-control input-md">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="">Type</label>  
+  <label class="col-md-4 control-label" for="textinput">Type</label>  
   <div class="col-md-4">
-  <input id="" name="" type="text" placeholder="saisir le numéro d'un type" class="form-control input-md">
+  <input id="idType" name="" type="number" placeholder="saisir un type" class="form-control input-md">
     
   </div>
 </div>
 
-<!-- Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for=""></label>
-  <div class="col-md-4">
-    <button id="btn-get" name="afficher" class="btn btn-primary">Get</button>
-  </div>
-</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for=""></label>
-  <div class="col-md-4">
-    <button id="btn-post" name="creer" class="btn btn-primary">Post</button>
-  </div>
-</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="recherche"></label>
-  <div class="col-md-4">
-    <button id="btn-put" name="recherche" class="btn btn-primary">Put</button>
-  </div>
-</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for=""></label>
-  <div class="col-md-4">
-    <button id="btn-delete" name="effacer" class="btn btn-primary">Delete</button>
-  </div>
+	<div class="col-sm-12">
+		<button id="btn-get" class="btn btn-primary btn-lg" title="Rechercher" >GET</button>
+		<button id="btn-post" class="btn btn-primary btn-lg" title="Ajouter">POST</button>
+		<button id="btn-put" class="btn btn-primary btn-lg" title="Modifier">PUT</button>
+		<button id="btn-delete" class="btn btn-primary btn-lg" title="Supprimer">DELETE</button>
+		<button id="btn-reset" class="btn btn-primary btn-lg" title="Effacer">RESET</button>
+	</div>
 </div>
 
 </form>
+</article>
+<article class="col-sm-6 col-xs-12" id="apprenantList">
+			<table id="pokemonTable" class="display">
+				<thead>
+					<tr>
+						<th>idPokemon</th>
+						<th>nomPokemon</th>
+						<th>nomEvol1</th>
+						<th>nomEvol2</th>
+						<th>idType</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>idPokemon</th>
+						<th>nomPokemon</th>
+						<th>nomEvol1</th>
+						<th>nomEvol2</th>
+						<th>idType</th>
+					</tr>
+				</tfoot>
+			</table>
+		</article>
 
 <div id = "resultat"></div>
+<div id = "feedbackapprenant"></div>
 
-<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
-<script type="text/javascript" src="js/pokemon.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+<script type="text/javascript" src="java/pokemon.js"></script>
 </body>
 </html>
