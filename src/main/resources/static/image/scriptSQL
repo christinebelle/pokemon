@@ -31,32 +31,20 @@ CREATE TABLE Type(
 )ENGINE=InnoDB;
 
 
-#------------------------------------------------------------
-# Table: contient
-#------------------------------------------------------------
-
-CREATE TABLE contient(
-        idType    Int NOT NULL ,
-        idPokemon Int NOT NULL
-	,CONSTRAINT contient_PK PRIMARY KEY (idType,idPokemon)
-
-	,CONSTRAINT contient_Type_FK FOREIGN KEY (idType) REFERENCES Type(idType)
-	,CONSTRAINT contient_Pokemon0_FK FOREIGN KEY (idPokemon) REFERENCES Pokemon(idPokemon)
-)ENGINE=InnoDB;
-
 #--- ajout: type --#
 INSERT INTO Type (attaque_char1, attaque_char2, attaque_im1, attaque_im2, nom_type) VALUES
-('Rebondifeu', 'Lance-Flammes', 'Griffe', 'Flammèche', 'Feu', 1),
+('Rebondifeu', 'Lance-Flammes', 'Griffe', 'Flammèche', 'Feu'),
 ('Aqua-Jet', 'Hydroqueue', 'Ecume', 'HydroCanon', 'Eau'),
 ('Eclair', 'Vive-Attaque', 'Tonnerre', 'CoupdJus','Electrique'),
-('TranchHerbe', 'Acide', 'Canon Graine', 'Bomb-Beurk','Plante', 2);
+('TranchHerbe', 'Acide', 'Canon Graine', 'Bomb-Beurk','Plante');
 
 #--- ajout: pokemon ---#
-INSERT INTO Pokemon (nomPokemon, nomEvol1, nomEvol2) VALUES
-('Salamèche', 'Reptincel', 'Dracaufeu'),
-('Nénupiot', 'Lombre', 'Ludicolo'),
-('Carapuce', 'Carabaffe', 'Tortank'),
-('Bulbizarre', 'Herbizarre', 'Florizarre');
+INSERT INTO Pokemon (nom_evol1, nom_evol2, nom_pokemon, id_type) VALUES
+('Salamèche', 'Reptincel', 'Dracaufeu', 1),
+('Nénupiot', 'Lombre', 'Ludicolo', 2),
+('Nénupiot', 'Lombre', 'Ludicolo', 4),
+('Carapuce', 'Carabaffe', 'Tortank',2),
+('Bulbizarre', 'Herbizarre', 'Florizarre', 4);
 
 
 
