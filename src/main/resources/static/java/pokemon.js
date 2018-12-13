@@ -136,7 +136,7 @@ function pokemon_submit(button, httpVerb, table) {
 
     
 // méthode qui traite GET (affichage d'un pokémon)  
-function getByNom(e) {
+function getByName(e) {
 	
 	// on récupère la variable
 	var nomPokemon = $("#nomPokemon").val();
