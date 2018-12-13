@@ -8,12 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Type implements Serializable{
+@Table(name="type")
+public class Categorie implements Serializable{
 
 	/**
 	 * numero de version par default de la classe pour que les ojets generes soit reconnu
@@ -34,14 +36,15 @@ public class Type implements Serializable{
      * relation de la clef etrangere de la table
      * name ="idPokemon"
      */
-	@OneToMany(mappedBy="type")
+	@OneToMany(mappedBy="categorie")
+	@JsonIgnore
     private Set<Pokemon> pokemons = new HashSet<Pokemon>();
 
 	
 	/**
      * constructeur vide
      */
-	public Type() {
+	public Categorie() {
 		
 	}
 
@@ -130,7 +133,7 @@ public class Type implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Type other = (Type) obj;
+		Categorie other = (Categorie) obj;
 		if (attaqueChar1 == null) {
 			if (other.attaqueChar1 != null)
 				return false;

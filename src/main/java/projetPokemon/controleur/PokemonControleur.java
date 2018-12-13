@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import projetPokemon.model.Pokemon;
@@ -55,10 +56,11 @@ public class PokemonControleur {
 	 * @return liste de pokemon
 	 */
 	@RequestMapping(value = "/pokemonGetAll", method = RequestMethod.GET)
+	@ResponseBody
 	public ResponseEntity<?> affichePokemon() {
 		List<Pokemon> listePokemons = null;
 		
-		listePokemons = pokemonRepo.findAll();
+		listePokemons = (List<Pokemon>) pokemonRepo.findAll();
 			
 		return ResponseEntity.status(HttpStatus.OK).body(listePokemons);
 	}
@@ -69,7 +71,8 @@ public class PokemonControleur {
 	 * @param nompokemon      
 	 * @return un pokemon      
 	 */     
-	@RequestMapping(value = "/pokemonGet/{nomPokemon}")     
+	@RequestMapping(value = "/pokemonGet/{nomPokemon}")
+	@ResponseBody
 	public ResponseEntity<?> recherchePokemon(@PathVariable String nomPokemon) { 
 		List<Pokemon> pokemonRecherche = null;                 
 		pokemonRecherche = pokemonRepo.findByNomPokemon(nomPokemon);         

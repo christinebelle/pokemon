@@ -39,7 +39,7 @@ public class Pokemon implements Serializable {
      */
     @ManyToOne
 	@JoinColumn(name = "idType")
-	private Type type;
+	private Categorie categorie;
     
     /**
      * constructeur vide
@@ -83,12 +83,12 @@ public class Pokemon implements Serializable {
 		this.nomEvol2 = nomEvol2;
 	}
 
-	public Type getType() {
-		return type;
+	public Categorie getCategorie() {
+		return categorie;
 	}
 
-	public void setType(Type type) {
-		this.type = type;
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
 	}
 	
 
@@ -104,7 +104,7 @@ public class Pokemon implements Serializable {
 		result = prime * result + ((nomEvol1 == null) ? 0 : nomEvol1.hashCode());
 		result = prime * result + ((nomEvol2 == null) ? 0 : nomEvol2.hashCode());
 		result = prime * result + ((nomPokemon == null) ? 0 : nomPokemon.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((categorie == null) ? 0 : categorie.hashCode());
 		return result;
 	}
 
@@ -137,10 +137,10 @@ public class Pokemon implements Serializable {
 				return false;
 		} else if (!nomPokemon.equals(other.nomPokemon))
 			return false;
-		if (type == null) {
-			if (other.type != null)
+		if (categorie == null) {
+			if (other.categorie != null)
 				return false;
-		} else if (!type.equals(other.type))
+		} else if (!categorie.equals(other.categorie))
 			return false;
 		return true;
 	}
@@ -154,7 +154,7 @@ public class Pokemon implements Serializable {
 	@Override
 	public String toString() {
 		return "Pokemon [idPokemon=" + idPokemon + ", nomPokemon=" + nomPokemon + ", nomEvol1=" + nomEvol1
-				+ ", nomEvol2=" + nomEvol2 + ", type=" + type + "]";
+				+ ", nomEvol2=" + nomEvol2 + ", type=" + categorie + "]";
 	}
 	 
 

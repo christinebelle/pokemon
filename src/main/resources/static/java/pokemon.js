@@ -14,7 +14,7 @@ $(document).ready(function() {
 		$("#nomPokemon").val(dataRow.nomPokemon);
 		$("#nomEvol1").val(dataRow.nomEvol1);
 		$("#nomEvol2").val(dataRow.nomEvol2);
-        $("#idType").val(dataRow.idType);
+        $("#idType").val(dataRow.categorie.nomType);
         
 	});
     
@@ -30,7 +30,7 @@ $(document).ready(function() {
     
     // appelle méthode clic GET
     $("#btn-get").click(function() {
-        getByName(e);
+        getByName();
     });
     
     // appelle méthode clic DELETE
@@ -62,8 +62,7 @@ function loadDatatable() {
 			{"data" : "nomPokemon"},
 			{"data" : "nomEvol1"}, 
 			{"data" : "nomEvol2"},
-            {"data" : "idType"}
-        ]
+            {"data" : "categorie.nomType"}]
 	});
 }
 
@@ -77,7 +76,8 @@ function pokemon_submit(button, httpVerb, table) {
 	pokemon["nomPokemon"] = $("#nomPokemon").val();
 	pokemon["nomEvol1"] = $("#nomEvol1").val();
 	pokemon["nomEvol2"] = $("#nomEvol2").val();
-    pokemon["idType"] = $("#idType").val();
+	pokemon["categorie.idType"] = $("#idType").val();
+	
 	// on initialise l'url du back
 	var url = "/api/pokemon";
     
@@ -140,7 +140,7 @@ function getByName() {
 	
 	// on récupère la variable
 	var nomPokemon = $("#nomPokemon").val();
-	e.preventDefault();
+//	e.preventDefault();
 	
 	// .ajax recharge juste le résultat de la fonction
 	// sans recharger la page entière
@@ -161,11 +161,11 @@ function getByName() {
 			$("#nomPokemon").val(data.nomPokemon);
 			$("#nomEvol1").val(data.nomEvol1);
 			$("#nomEvol2").val(data.nomEvol2);
-            $("#nomType").val(data.nomType);
-            $("#attaqueIm1").val(data.attaqueIm1);
+            $("#nomType").val(data.categorie.idType);
+        /*    $("#attaqueIm1").val(data.attaqueIm1);
             $("#attaqueIm2").val(data.attaqueIm2);
             $("#attaqueChar1").val(data.attaqueChar1);
-            $("#attaqueChar2").val(data.attaqueChar2);
+            $("#attaqueChar2").val(data.attaqueChar2); */
 			console.log("SUCCESS : ", data);
 		},
 		error : function(e) {
