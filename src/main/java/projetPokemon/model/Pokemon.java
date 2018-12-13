@@ -14,10 +14,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class PokemonEntity implements Serializable {
+public class Pokemon implements Serializable {
 	
     /**
 	 * numero de version par default de la classe pour que les ojets generes soit reconnu
@@ -25,7 +27,7 @@ public class PokemonEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idPokemon;
     private String nomPokemon;
     private String nomEvol1;
@@ -35,13 +37,14 @@ public class PokemonEntity implements Serializable {
      * relation de la clef etrangere de la table
      * mappedBy="idType"
      */
-    @OneToMany(mappedBy="idType", cascade=CascadeType.REMOVE)
-    private Set<TypeEntity> types = new HashSet<TypeEntity>();
+    @ManyToOne
+	@JoinColumn(name = "idType")
+	private Type type;
     
     /**
      * constructeur vide
      */
-	public PokemonEntity() {
+	public Pokemon() {
 		
 	}
 
@@ -80,12 +83,12 @@ public class PokemonEntity implements Serializable {
 		this.nomEvol2 = nomEvol2;
 	}
 
-	public Set<TypeEntity> getTypes() {
-		return types;
+	public Type getType() {
+		return type;
 	}
 
-	public void setTypes(Set<TypeEntity> types) {
-		this.types = types;
+	public void setType(Type type) {
+		this.type = type;
 	}
 	
 
@@ -101,7 +104,7 @@ public class PokemonEntity implements Serializable {
 		result = prime * result + ((nomEvol1 == null) ? 0 : nomEvol1.hashCode());
 		result = prime * result + ((nomEvol2 == null) ? 0 : nomEvol2.hashCode());
 		result = prime * result + ((nomPokemon == null) ? 0 : nomPokemon.hashCode());
-		result = prime * result + ((types == null) ? 0 : types.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
 
@@ -113,7 +116,7 @@ public class PokemonEntity implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PokemonEntity other = (PokemonEntity) obj;
+		Pokemon other = (Pokemon) obj;
 		if (idPokemon == null) {
 			if (other.idPokemon != null)
 				return false;
@@ -134,13 +137,15 @@ public class PokemonEntity implements Serializable {
 				return false;
 		} else if (!nomPokemon.equals(other.nomPokemon))
 			return false;
-		if (types == null) {
-			if (other.types != null)
+		if (type == null) {
+			if (other.type != null)
 				return false;
-		} else if (!types.equals(other.types))
+		} else if (!type.equals(other.type))
 			return false;
 		return true;
 	}
+
+	
 
 	
 	/**
@@ -148,11 +153,9 @@ public class PokemonEntity implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "PokemonEntity [idPokemon=" + idPokemon + ", nomPokemon=" + nomPokemon + ", nomEvol1=" + nomEvol1
-				+ ", nomEvol2=" + nomEvol2 + ", types=" + types + "]";
+		return "Pokemon [idPokemon=" + idPokemon + ", nomPokemon=" + nomPokemon + ", nomEvol1=" + nomEvol1
+				+ ", nomEvol2=" + nomEvol2 + ", type=" + type + "]";
 	}
-
-	
 	 
 
 }

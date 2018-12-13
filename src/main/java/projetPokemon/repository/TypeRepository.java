@@ -1,10 +1,12 @@
 package projetPokemon.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import projetPokemon.model.TypeEntity;
+import projetPokemon.model.Type;
 
-public interface TypeRepository extends CrudRepository<TypeEntity, Integer>{
+@Repository
+public interface TypeRepository extends CrudRepository<Type, Integer>{
 	
 
 }

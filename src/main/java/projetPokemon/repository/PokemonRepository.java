@@ -3,12 +3,14 @@ package projetPokemon.repository;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import projetPokemon.model.PokemonEntity;
+import projetPokemon.model.Pokemon;
 
-public interface PokemonRepository extends CrudRepository<PokemonEntity, Integer> {
+@Repository
+public interface PokemonRepository extends CrudRepository<Pokemon, Integer> {
 	
 	//Methode renvoyer dans une collection
-	public List<PokemonEntity> findByNom(String nomPokemon);
+	public List<Pokemon> findByNomPokemon(String nomPokemon);
 
 }

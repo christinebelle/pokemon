@@ -1,6 +1,8 @@
 package projetPokemon.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,9 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class TypeEntity implements Serializable{
+public class Type implements Serializable{
 
 	/**
 	 * numero de version par default de la classe pour que les ojets generes soit reconnu
@@ -19,7 +22,7 @@ public class TypeEntity implements Serializable{
 	
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idType;
 	private String nomType;
 	private String attaqueIm1;
@@ -31,15 +34,14 @@ public class TypeEntity implements Serializable{
      * relation de la clef etrangere de la table
      * name ="idPokemon"
      */
-	@ManyToOne
-	@JoinColumn(name = "idPokemon")
-	private PokemonEntity pokemons;
+	@OneToMany(mappedBy="type")
+    private Set<Pokemon> pokemons = new HashSet<Pokemon>();
 
 	
 	/**
      * constructeur vide
      */
-	public TypeEntity() {
+	public Type() {
 		
 	}
 
@@ -50,68 +52,55 @@ public class TypeEntity implements Serializable{
 		return idType;
 	}
 
-
 	public void setIdType(Integer idType) {
 		this.idType = idType;
 	}
-
 
 	public String getNomType() {
 		return nomType;
 	}
 
-
 	public void setNomType(String nomType) {
 		this.nomType = nomType;
 	}
-
 
 	public String getAttaqueIm1() {
 		return attaqueIm1;
 	}
 
-
 	public void setAttaqueIm1(String attaqueIm1) {
 		this.attaqueIm1 = attaqueIm1;
 	}
-
 
 	public String getAttaqueIm2() {
 		return attaqueIm2;
 	}
 
-
 	public void setAttaqueIm2(String attaqueIm2) {
 		this.attaqueIm2 = attaqueIm2;
 	}
-
 
 	public String getAttaqueChar1() {
 		return attaqueChar1;
 	}
 
-
 	public void setAttaqueChar1(String attaqueChar1) {
 		this.attaqueChar1 = attaqueChar1;
 	}
-
 
 	public String getAttaqueChar2() {
 		return attaqueChar2;
 	}
 
-
 	public void setAttaqueChar2(String attaqueChar2) {
 		this.attaqueChar2 = attaqueChar2;
 	}
 
-
-	public PokemonEntity getPokemons() {
+	public Set<Pokemon> getPokemons() {
 		return pokemons;
 	}
 
-
-	public void setPokemons(PokemonEntity pokemons) {
+	public void setPokemons(Set<Pokemon> pokemons) {
 		this.pokemons = pokemons;
 	}
 
@@ -141,7 +130,7 @@ public class TypeEntity implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TypeEntity other = (TypeEntity) obj;
+		Type other = (Type) obj;
 		if (attaqueChar1 == null) {
 			if (other.attaqueChar1 != null)
 				return false;
@@ -180,15 +169,19 @@ public class TypeEntity implements Serializable{
 		return true;
 	}
 
+	
+
 	/**
 	 * toString methode pour afficher les variables
 	 */
 	@Override
 	public String toString() {
-		return "TypeEntity [idType=" + idType + ", nomType=" + nomType + ", attaqueIm1=" + attaqueIm1 + ", attaqueIm2="
+		return "Type [idType=" + idType + ", nomType=" + nomType + ", attaqueIm1=" + attaqueIm1 + ", attaqueIm2="
 				+ attaqueIm2 + ", attaqueChar1=" + attaqueChar1 + ", attaqueChar2=" + attaqueChar2 + ", pokemons="
 				+ pokemons + "]";
 	}
+
+	
 	
 	
 }

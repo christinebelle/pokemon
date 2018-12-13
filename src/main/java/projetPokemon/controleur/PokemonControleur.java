@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import projetPokemon.model.PokemonEntity;
+import projetPokemon.model.Pokemon;
 import projetPokemon.repository.PokemonRepository;
 
 
@@ -35,8 +35,8 @@ public class PokemonControleur {
 	 * @return la creation d'un newPokemon
 	 */
 	@RequestMapping(value="/pokemonPost", method = RequestMethod.POST)
-	public ResponseEntity<?> creerPokemon(@RequestBody PokemonEntity pokemon) {
-		PokemonEntity newPokemon = null;
+	public ResponseEntity<?> creerPokemon(@RequestBody Pokemon pokemon) {
+		Pokemon newPokemon = null;
 		
 		//empeche le client de mettre un champ vide car la colone nomPokemon est NOT NULL
 		String nomPokemon = pokemon.getNomPokemon();
@@ -56,7 +56,7 @@ public class PokemonControleur {
 	 */
 	@RequestMapping(value = "/pokemonGetAll", method = RequestMethod.GET)
 	public ResponseEntity<?> affichePokemon() {
-		Iterable<PokemonEntity> listePokemons = null;
+		Iterable<Pokemon> listePokemons = null;
 		
 		listePokemons = pokemonRepo.findAll();
 			
@@ -71,8 +71,8 @@ public class PokemonControleur {
 	 */     
 	@RequestMapping(value = "/pokemonGet/{nomPokemon}")     
 	public ResponseEntity<?> recherchePokemon(@PathVariable String nomPokemon) { 
-		List<PokemonEntity> pokemonRecherche = null;                 
-		pokemonRecherche = pokemonRepo.findByNom(nomPokemon);         
+		List<Pokemon> pokemonRecherche = null;                 
+		pokemonRecherche = pokemonRepo.findByNomPokemon(nomPokemon);         
 		return ResponseEntity.status(HttpStatus.OK).body(pokemonRecherche);    
 		}
 	
@@ -95,8 +95,8 @@ public class PokemonControleur {
 	 * @return
 	 */
 	@RequestMapping(value = "/pokemonUpdate/{idPokemon}", method = RequestMethod.PUT)
-	public ResponseEntity<?> modifiePokemon(@RequestBody PokemonEntity pokemon, @PathVariable Integer idPokemon) {
-		PokemonEntity pokemonModifie = null;
+	public ResponseEntity<?> modifiePokemon(@RequestBody Pokemon pokemon, @PathVariable Integer idPokemon) {
+		Pokemon pokemonModifie = null;
 		
 		String nomPokemon = pokemon.getNomPokemon();
 		
