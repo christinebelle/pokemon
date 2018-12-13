@@ -45,11 +45,11 @@ CREATE TABLE contient(
 )ENGINE=InnoDB;
 
 #--- ajout: type --#
-INSERT INTO Type (nomType, attaqueIm1, attaqueIm2, attaqueChar1, attaqueChar2) VALUES
-('Feu', 'Griffe', 'Flammèche', 'Rebondifeu', 'Lance-Flammes'),
-('Eau', 'Charge', 'Ecume', 'Aqua-Jet', 'Hydroqueue'),
-('Electrique', 'Eclair', 'Vive-Attaque', 'Tonnerre', 'CoupdJus'),
-('Plante', 'TranchHerbe', 'Acide', 'Canon Graine', 'Bomb-Beurk');
+INSERT INTO Type (attaque_char1, attaque_char2, attaque_im1, attaque_im2, nom_type) VALUES
+('Rebondifeu', 'Lance-Flammes', 'Griffe', 'Flammèche', 'Feu', 1),
+('Aqua-Jet', 'Hydroqueue', 'Ecume', 'HydroCanon', 'Eau'),
+('Eclair', 'Vive-Attaque', 'Tonnerre', 'CoupdJus','Electrique'),
+('TranchHerbe', 'Acide', 'Canon Graine', 'Bomb-Beurk','Plante', 2);
 
 #--- ajout: pokemon ---#
 INSERT INTO Pokemon (nomPokemon, nomEvol1, nomEvol2) VALUES
@@ -58,11 +58,5 @@ INSERT INTO Pokemon (nomPokemon, nomEvol1, nomEvol2) VALUES
 ('Carapuce', 'Carabaffe', 'Tortank'),
 ('Bulbizarre', 'Herbizarre', 'Florizarre');
 
-#--- ajout: contient ---#
-INSERT INTO contient (idType, idPokemon) VALUES
-(1, 1),
-(2, 2),
-(4, 2),
-(2, 3),
-(4, 4);
+
 
