@@ -19,22 +19,22 @@ $(document).ready(function() {
 	});
     
     // appelle méthode clic POST avec 2 paramètres (référence bouton et type méthode post)
-    $("#btn-post").click(function(e) {
+    $("#btn-post").click(function() {
         pokemon_submit($("btn-post"), "POST", table);
     });
     
     // appelle méthode clic PUT avec 2 paramètres (référence bouton et type méthode put) 
-    $("#btn-put").click(function(e) {
+    $("#btn-put").click(function() {
         pokemon_submit($("btn-put"), "PUT", table);
     });
     
     // appelle méthode clic GET
-    $("#btn-get").click(function(e) {
+    $("#btn-get").click(function() {
         getByName(e);
     });
     
     // appelle méthode clic DELETE
-    $("#btn-delete").click(function(e) {
+    $("#btn-delete").click(function() {
         deletePokemon();
     });
     
@@ -49,7 +49,7 @@ function loadDatatable() {
 	                "sortable" : false
 	            },
 	            {
-	                "targets": [ 3 ],
+	                "targets": [ 4 ],
 	                "visible": true
 	            }
 	        ],
@@ -136,7 +136,7 @@ function pokemon_submit(button, httpVerb, table) {
 
     
 // méthode qui traite GET (affichage d'un pokémon)  
-function getByName(e) {
+function getByName() {
 	
 	// on récupère la variable
 	var nomPokemon = $("#nomPokemon").val();
@@ -180,7 +180,7 @@ function getByName(e) {
 }
    
 // méthode qui traite DELETE (suppression d'un pokémon)
-function deletePokemon(e) {
+function deletePokemon() {
    
     var idPokemon = $("#idPokemon").val();
 
