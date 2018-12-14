@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"projetPokemon.model","l":"Categorie"},{"p":"projetPokemon.repository","l":"CategorieRepository"},{"p":"projetPokemon.model","l":"Pokemon"},{"p":"projetPokemon","l":"PokemonApplication"},{"p":"projetPokemon.controleur","l":"PokemonControleur"},{"p":"projetPokemon.repository","l":"PokemonRepository"}]
