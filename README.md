@@ -40,10 +40,22 @@ MLD
 
 ### Injection des dépendances
 
-(liste dépendances)
+![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/dependances.png)
 
-### exemple CRUD
+### Exemple CRUD
 
-Requête Read
+Requête Post et Put
+
+#### Model
+![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/PostPutJava.png)
+
+#### Controleur
+![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/PostPutcontroleur.png)
+
+#### Html
+![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/PostPuthtml.png)
+
+#### Javascript
+![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/PostPutJavascript.png)
 
 
