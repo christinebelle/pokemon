@@ -105,11 +105,13 @@ function pokemon_submit(button, httpVerb, table) {
 
             // si c'est une création
             if(httpVerb == "POST")
-            var json = "<h3>Server Response au format JSON</h3><pre>Pokemon ajouté :<br>" + JSON.stringify(data, null, 4) + "</pre>";
+            var json = "<h3>Server Response au format JSON</h3><pre>Pokemon ajouté :<br>" 
+            	+ JSON.stringify(data, null, 4) + "</pre>";
 	
             // si c'est une modification
             if(httpVerb == "PUT")
-            var json = "<h3>Server Response au format JSON</h3><pre>pokemon modifié :<br>" + JSON.stringify(data, null, 4) + "</pre>";
+            var json = "<h3>Server Response au format JSON</h3><pre>pokemon modifié :<br>" 
+            	+ JSON.stringify(data, null, 4) + "</pre>";
 			
             // renvoie info format Json adapté au html
 			$('#feedbackapprenant').html(json);
@@ -145,11 +147,11 @@ function getByName() {
 	// .ajax recharge juste le résultat de la fonction
 	// sans recharger la page entière
 	$.ajax({
-		type : "GET",
+		type : "GET", // méthode GET
 		contentType : "application/json",
-		url : "/api/pokemonGet/" + nomPokemon,
+		url : "/api/pokemonGet/" + nomPokemon, // url destinatrice
 		data : {}, // tableau vide pour recevoir réponse
-		dataType : 'json',
+		dataType : 'json', // précise le mode de transfert
 		cache : false, // false car pas besoin de faire de cache
 		timeout : 600000,
 		success : function(data) {
@@ -168,14 +170,14 @@ function getByName() {
             $("#attaqueChar2").val(data.attaqueChar2); */
 			console.log("SUCCESS : ", data);
 		},
-		error : function(e) {
-
-			var json = "<h3>Server Response</h3><pre>" + e.responseText	+ "</pre>";
-			
-			$('#resultat').html(json);
-
-			console.log("ERROR : ", e);
-		}
+//		error : function(e) {
+//
+//			var json = "<h3>Server Response</h3><pre>" + e.responseText	+ "</pre>";
+//			
+//			$('#resultat').html(json);
+//
+//			console.log("ERROR : ", e);
+//		}
 	});
 }
    
