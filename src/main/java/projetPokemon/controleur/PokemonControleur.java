@@ -45,7 +45,7 @@ import projetPokemon.repository.PokemonRepository;
 
 @RestController
 @RequestMapping("/api")
-public class PokemonControleur {
+public class PokemonControleur { 
 	
 	@Autowired
 	private PokemonRepository pokemonRepo;
@@ -116,7 +116,11 @@ public class PokemonControleur {
 	}
 	
 	/**
+<<<<<<< HEAD
 	 * Methode qui permet de modifier un Pokemon
+=======
+	 * Méthode qui modifie un pokémon
+>>>>>>> branch 'master' of https://github.com/christinebelle/pokemon.git
 	 * @param pokemon
 	 * @param idPokemon
 	 * @return un Pokemon modifié
