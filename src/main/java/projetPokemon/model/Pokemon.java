@@ -2,21 +2,21 @@ package projetPokemon.model;
 
 /**
  * @author Christine
- * Table de la base de donnée contenant le nom des pokemons et leurs évolutions
+ * 
+ * Table de la base de donnee contenant le nom des pokemons et leurs evolutions
+ * 
+ * @JoinColumn : Specifie une colonne pour rejoindre une association d'entites ou une collection d'elements.
+ * @ManyToOne : Definit une association a une valeur unique avec une autre classe d'entites ayant une multiplicite de plusieurs a un.
  */
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Pokemon implements Serializable {
@@ -144,9 +144,6 @@ public class Pokemon implements Serializable {
 			return false;
 		return true;
 	}
-
-	
-
 	
 	/**
 	 * toString methode pour afficher les variables

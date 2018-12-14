@@ -1,7 +1,31 @@
 package projetPokemon.controleur;
 
 /**
+ * @author Samuel et christine
+ * 
+ * class contenant les methodes CRUD de l'application
+ * 
+ *@RestController : les types qui portent cette annotation sont traites comme des controleurs 
+ *dans lesquels les @RequestMapping methodes assument la @ResponseBodysémantique par defaut.
+ *@ReponseBody : Les annotations qui indiquent une valeur de retour de methode doivent etre liees au corps de la reponse Web. 
+ *Pris en charge pour les methodes de gestionnaire annotees.
+ *@RequestBody : L'annotation indiquant un parametre de methode doit etre liee au corps de la demande Web. 
+ *Le corps de la demande est passe par un HttpMessageConverterpour resoudre l'argument de methode en fonction du type de contenu de la demande. 
+ *La validation automatique peut eventuellement etre appliquee en annotant l'argument avec @Valid.
+ *@RequestMapping : 
  *
+ *@RequestMethod : Destine a etre utilise avec les attributs des RequestMapping.method() provenants des RequestMapping annotation.
+ *@PathVariable : Annotation indiquant qu'un parametre de methode doit etre lie a une variable de modele d'URI. 
+ *Pris en charge pour les RequestMapping methodes de gestionnaire annotees.
+ *Si le parametre de methode est Map<String, String> alors, la carte est renseignee avec tous les noms et valeurs de variables de chemin.
+ *
+ *@Autowired : permet l'injection des dependance PokemonRepository
+ *@httpStatus : permet l'implementation des methodes du langage liee au code HTTP
+ *@ResponseEntity :Extension de HttpEntity qui possede aussi un code au statut HttpStatus. 
+ *Utiliser dans RestTemplate il possede aussi les @Controller methods.
+ *Dans RestTemplate, cette classe est retournee par getForEntity()et exchange()
+ *Peut egalement etre utilise dans Spring MVC en tant que valeur de retour d'une methode @Controller
+ *Ou, en utilisant un generateur accessible via des methodes statiques
  */
 import java.util.List;
 
@@ -92,10 +116,10 @@ public class PokemonControleur {
 	}
 	
 	/**
-	 * 
+	 * Methode qui permet de modifier un Pokemon
 	 * @param pokemon
 	 * @param idPokemon
-	 * @return
+	 * @return un Pokemon modifié
 	 */
 	@RequestMapping(value = "/pokemonUpdate/{idPokemon}", method = RequestMethod.PUT)
 	public ResponseEntity<?> modifiePokemon(@RequestBody Pokemon pokemon, @PathVariable Integer idPokemon) {

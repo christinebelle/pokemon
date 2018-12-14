@@ -1,5 +1,26 @@
 package projetPokemon.model;
 
+/**
+ * @author christine
+ * 
+ * Table de la base de donnee contenant le type des pokemons et leurs attaques
+ *  
+ * @Entity : Specifie que la classe est une entite. 
+ * Cette annotation est appliquee a la classe d'entite.
+ * @GeneratedValue : Fournit la specification pour les valeurs des cles primaires.
+ * @GenerationType : Definit les types de la cle primaire.
+ * @ID : Specifie la cle primaire d'une entite.
+ * @OneToMany : Definit une association à valeurs multiples avec une multiplicite de un a plusieurs.
+ * @Table : Specifie la table primaire pour l'entite annotee.
+ * 
+ * @Serializable : L'interface Serializable n'a pas de methodes ni de champs et sert uniquement a identifier la semantique Serializable.
+ * @HashSet : Cette classe implemente l' interface Set.
+ * @Set : Une collection qui ne contient aucun element en double
+ * 
+ * @JsonIgnore : pertmet d'ignorer la generation du Json de la methode 
+ * ( probleme de boucle infini lie a l'association de valeur multiple depuis l'ID)
+ */
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
