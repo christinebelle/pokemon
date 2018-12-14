@@ -68,6 +68,14 @@ public class Categorie implements Serializable{
 	public Categorie() {
 		
 	}
+	
+	public Categorie(Integer idType, String nomType) {
+		super();
+		this.idType = idType;
+		this.nomType = nomType;
+	}
+
+
 
 	/**
 	 * get et set methode
