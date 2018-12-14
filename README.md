@@ -1,4 +1,4 @@
-#LES POKEMONS DE CHRISTINE
+# LES POKEMONS DE CHRISTINE
 
 Créer un projet SpringBoot Hibernate qui gère une base de donnée comprenant une table Pokémon liée à une seconde table Type
 
