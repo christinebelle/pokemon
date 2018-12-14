@@ -92,7 +92,7 @@ public class PokemonControleur {
 	}
 	
 	/**
-	 * 
+	 * Méthode qui modifie un pokémon
 	 * @param pokemon
 	 * @param idPokemon
 	 * @return

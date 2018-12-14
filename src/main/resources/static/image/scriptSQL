@@ -4,30 +4,38 @@
 
 
 #------------------------------------------------------------
-# Table: Pokemon
+# Table: Type_Entity
 #------------------------------------------------------------
 
-CREATE TABLE Pokemon(
-        idPokemon  Int  Auto_increment  NOT NULL ,
-        nomPokemon Varchar (50) NOT NULL ,
-        nomEvol1   Varchar (50) ,
-        nomEvol2   Varchar (50)
-	,CONSTRAINT Pokemon_PK PRIMARY KEY (idPokemon)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Type
-#------------------------------------------------------------
-
-CREATE TABLE Type(
+CREATE TABLE Type_Entity(
         idType       Int  Auto_increment  NOT NULL ,
         nomType      Varchar (50) NOT NULL ,
         attaqueIm1   Varchar (50) ,
         attaqueIm2   Varchar (50) ,
         attaqueChar1 Varchar (50) ,
         attaqueChar2 Varchar (50)
-	,CONSTRAINT Type_PK PRIMARY KEY (idType)
+	,CONSTRAINT Type_Entity_PK PRIMARY KEY (idType)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Pokemon_Entity
+#------------------------------------------------------------
+
+CREATE TABLE Pokemon_Entity(
+        idType       Int NOT NULL ,
+        idPokemon    Int NOT NULL ,
+        nomPokemon   Varchar (50) NOT NULL ,
+        nomEvol1     Varchar (50) ,
+        nomEvol2     Varchar (50) ,
+        nomType      Varchar (50) NOT NULL ,
+        attaqueIm1   Varchar (50) ,
+        attaqueIm2   Varchar (50) ,
+        attaqueChar1 Varchar (50) ,
+        attaqueChar2 Varchar (50)
+	,CONSTRAINT Pokemon_Entity_PK PRIMARY KEY (idType,idPokemon)
+
+	,CONSTRAINT Pokemon_Entity_Type_Entity_FK FOREIGN KEY (idType) REFERENCES Type_Entity(idType)
 )ENGINE=InnoDB;
 
 
