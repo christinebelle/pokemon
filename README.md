@@ -36,12 +36,14 @@ MLD
 
 ### Architecture projet Gradle sur Eclipse
 
-(image architecture)
+![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/architecture.png)
 
 ### Injection des dépendances
 
 (liste dépendances)
 
 ### exemple CRUD
+
+Requête Read
 
 
