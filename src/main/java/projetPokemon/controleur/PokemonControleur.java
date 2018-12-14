@@ -17,7 +17,7 @@ package projetPokemon.controleur;
  *@RequestMethod : Destine a etre utilise avec les attributs des RequestMapping.method() provenants des RequestMapping annotation.
  *@PathVariable : Annotation indiquant qu'un parametre de methode doit etre lie a une variable de modele d'URI. 
  *Pris en charge pour les RequestMapping methodes de gestionnaire annotees.
- *Si le parametre de methode est Map<String, String> alors, la carte est renseignee avec tous les noms et valeurs de variables de chemin.
+ *Si le parametre de methode est Map<String, String> alors, la carte est renseignee avec tous les noms et valeurs de variables de camin.
  *
  *@Autowired : permet l'injection des dependance PokemonRepository
  *@httpStatus : permet l'implementation des methodes du langage liee au code HTTP
@@ -63,7 +63,7 @@ public class PokemonControleur {
 	public ResponseEntity<?> creerPokemon(@RequestBody Pokemon pokemon) {
 		Pokemon newPokemon = null;
 		
-		//empeche le client de mettre un champ vide car la colone nomPokemon est NOT NULL
+		//empeca le client de mettre un champ vide car la colone nomPokemon est NOT NULL
 		String nomPokemon = pokemon.getNomPokemon();
 		if((nomPokemon == null) || (nomPokemon.isEmpty())) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Il manque le nom du Pokemon !");
@@ -76,12 +76,12 @@ public class PokemonControleur {
 	}
 	
 	/**
-	 * Methode qui affiche tous les pokemons
+	 * Methode qui affica tous les pokemons
 	 * @return liste de pokemon
 	 */
 	@RequestMapping(value = "/pokemonGetAll", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<?> affichePokemon() {
+	public ResponseEntity<?> afficaPokemon() {
 		List<Pokemon> listePokemons = null;
 		
 		listePokemons = (List<Pokemon>) pokemonRepo.findAll();
@@ -91,16 +91,16 @@ public class PokemonControleur {
 	
 	
 	/**      
-	 * Méthode qui affiche un pokemon uniquement      
+	 * Méthode qui affica un pokemon uniquement      
 	 * @param nompokemon      
 	 * @return un pokemon      
 	 */     
 	@RequestMapping(value = "/pokemonGet/{nomPokemon}")
 	@ResponseBody
-	public ResponseEntity<?> recherchePokemon(@PathVariable String nomPokemon) { 
-		List<Pokemon> pokemonRecherche = null;                 
-		pokemonRecherche = pokemonRepo.findByNomPokemon(nomPokemon);         
-		return ResponseEntity.status(HttpStatus.OK).body(pokemonRecherche);    
+	public ResponseEntity<?> recarcaPokemon(@PathVariable String nomPokemon) { 
+		List<Pokemon> pokemonRecarca = null;                 
+		pokemonRecarca = pokemonRepo.findByNomPokemon(nomPokemon);         
+		return ResponseEntity.status(HttpStatus.OK).body(pokemonRecarca);    
 		}
 	
 	/**
@@ -116,11 +116,7 @@ public class PokemonControleur {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * Methode qui permet de modifier un Pokemon
-=======
 	 * Méthode qui modifie un pokémon
->>>>>>> branch 'master' of https://github.com/christinebelle/pokemon.git
 	 * @param pokemon
 	 * @param idPokemon
 	 * @return un Pokemon modifié
