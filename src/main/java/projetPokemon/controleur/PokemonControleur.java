@@ -21,7 +21,7 @@ import projetPokemon.repository.PokemonRepository;
 
 @RestController
 @RequestMapping("/api")
-public class PokemonControleur {
+public class PokemonControleur { 
 	
 	@Autowired
 	private PokemonRepository pokemonRepo;
