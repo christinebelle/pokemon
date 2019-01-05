@@ -25,10 +25,10 @@ Les deux tables sont liées par une multiplicité one-to-many
 ### MCD et MLD
 
 MCD
-![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/mcdPok.png)
+![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/mcdpokemon.png)
 
 MLD
-![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/mldPok.png)
+![image](https://github.com/christinebelle/pokemon/blob/master/src/main/resources/static/image/mldpokemon.png)
 
 ## Création du projet sur Eclipse
 
